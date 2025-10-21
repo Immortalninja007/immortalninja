@@ -17,7 +17,7 @@
     body {
       font-family: 'Poppins', sans-serif;
       color: #fff;
-      background: linear-gradient(135deg, #020024, #090979, #00d4ff);
+      background: linear-gradient(135deg, #0b0000, #3a0d0d, #8b0000, #1a0000);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
       overflow-x: hidden;
@@ -29,24 +29,32 @@
       100% { background-position: 0% 50%; }
     }
 
+    @keyframes glowPulse {
+      0%, 100% { text-shadow: 0 0 10px #ff1744, 0 0 20px #ff1744, 0 0 30px #ff1744; }
+      50% { text-shadow: 0 0 20px #ff5252, 0 0 40px #ff1744, 0 0 60px #ff1744; }
+    }
+
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(20, 0, 0, 0.9);
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 100;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 12px rgba(255, 0, 0, 0.4);
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 700;
-      color: #00d9ff;
+      color: #ff1744;
+      text-shadow: 0 0 8px #ff1744;
+      animation: glowPulse 3s infinite ease-in-out;
     }
 
     nav ul {
@@ -59,11 +67,12 @@
       color: #fff;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
     }
 
     nav ul li a:hover {
-      color: #00d9ff;
+      color: #ff1744;
+      text-shadow: 0 0 8px #ff1744;
     }
 
     section {
@@ -75,8 +84,8 @@
       text-align: center;
       padding: 100px 20px 50px;
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 1s ease;
+      transform: translateY(40px);
+      transition: all 1.2s ease;
     }
 
     section.visible {
@@ -85,7 +94,14 @@
     }
 
     h1, h2 {
-      color: #00d9ff;
+      color: #ff1744;
+      animation: glowPulse 4s infinite ease-in-out;
+    }
+
+    p {
+      max-width: 600px;
+      line-height: 1.6;
+      margin-top: 1rem;
     }
 
     .projects {
@@ -98,14 +114,16 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       padding: 1.5rem;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+      transition: all 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-8px);
+      box-shadow: 0 4px 25px rgba(255, 23, 68, 0.6);
     }
 
     .skills {
@@ -117,17 +135,25 @@
     }
 
     .skill {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 23, 68, 0.25);
       padding: 10px 20px;
       border-radius: 20px;
+      box-shadow: 0 0 8px rgba(255, 23, 68, 0.6);
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background: rgba(255, 23, 68, 0.4);
+      transform: scale(1.1);
     }
 
     footer {
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(20, 0, 0, 0.85);
       padding: 1rem;
       text-align: center;
-      color: #aaa;
+      color: #ccc;
       font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 23, 68, 0.2);
     }
 
     /* JetDate Banner */
@@ -135,9 +161,22 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 30px 0;
-      background: rgba(0, 0, 0, 0.2);
-      margin-top: 40px;
+      padding: 40px 0;
+      background: rgba(60, 0, 0, 0.4);
+      border-top: 1px solid rgba(255, 23, 68, 0.3);
+      margin-top: 50px;
+    }
+
+    /* Smooth fade-in */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section.visible h1,
+    section.visible h2,
+    section.visible p {
+      animation: fadeIn 1.2s ease forwards;
     }
   </style>
 </head>
@@ -156,20 +195,20 @@
 
   <section id="home">
     <h1>Hello, I’m ImmortalNinja 👋</h1>
-    <p>Welcome to my portfolio. I’m passionate about coding, design, and building cool projects.</p>
+    <p>Welcome to my world. I create moments with passion, vibe with precision, and create  fire.</p>
   </section>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m at your service creating clean, interactive and cherishable moments.</p>
+    <p>I blend logic and art to create smooth, powerful sensual experiences that leave a lasting impression.</p>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
-      <div class="card"><h3>🌐 Portfolio Site</h3><p>A personal website built using HTML, CSS & JS.</p></div>
-      <div class="card"><h3>💡 To-Do App</h3><p>A simple productivity app to track your daily tasks.</p></div>
-      <div class="card"><h3>🎮 Mini Game</h3><p>A fun browser game using vanilla JavaScript.</p></div>
+      <div class="card"><h3>🔥 Portfolio Site</h3><p>Elegant and vibeful, built with care, aftercare, and cleaniness.</p></div>
+      <div class="card"><h3>💡 To-Do App</h3><p>Minimalist productivity app with clean design.</p></div>
+      <div class="card"><h3>🎮 Mini Game</h3><p>A sleek, responsive browser game for fun and skill.</p></div>
     </div>
   </section>
 
@@ -186,11 +225,11 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Let’s connect! Reach out via email or my social links below.</p>
-    <p>📧 <a href="mailto:nidheeshsp8@gmail.com" style="color:#00d9ff;">nidheeshsp8@gmail.com</a></p>
+    <p>Let’s collaborate — let’s make ideas burn bright.</p>
+    <p>📧 <a href="mailto:nidheeshsp8@gmail.com" style="color:#ff1744;">nidheeshsp8@gmail.com</a></p>
   </section>
 
-  <!-- ✅ JetDate Banner -->
+  <!-- ❤️ JetDate Banner -->
   <div class="jet-banner-container">
     <div style="padding:0;margin:0;overflow:hidden;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:bold;width:468px;height:60px;display:block;position:relative;color:black!important;background-color:black!important">
       <a target="_blank" href="https://jetdate.in/male-escorts-in-thiruvananthapuram" title="Immortalninja - Male Escort in Thiruvananthapuram" style="padding:0;margin:0;overflow:hidden;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
@@ -203,10 +242,9 @@
     </div>
   </div>
 
-  <footer>© 2025 ImmortalNinja | Built with ❤️ and HTML</footer>
+  <footer>© 2025 ImmortalNinja | Crafted with 🔥 and Passion</footer>
 
   <script>
-    // Fade-in animation on scroll
     const sections = document.querySelectorAll("section");
     const options = { threshold: 0.3 };
     const observer = new IntersectionObserver((entries) => {
@@ -214,7 +252,6 @@
         if (entry.isIntersecting) entry.target.classList.add("visible");
       });
     }, options);
-
     sections.forEach(section => observer.observe(section));
   </script>
 </body>
